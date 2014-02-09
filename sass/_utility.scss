@@ -1,0 +1,38 @@
+// Hide from screenreaders and browsers
+@mixin hidden() {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide from screenreaders and browsers and maintain layout
+@mixin invisible() {
+    visibility: hidden;
+}
+
+// Hide from browsers but NOT screenreaders
+@mixin visuallyhidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+// Clearfix
+@mixin group() {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
