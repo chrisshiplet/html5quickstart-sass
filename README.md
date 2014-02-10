@@ -88,22 +88,22 @@ This mixin hides an element from screen readers and browsers while maintaining l
 ####visuallyhidden()
 This mixin hides an element from browsers, but not screen readers.
 
-####border-radius (@radius:0)
+####border-radius ($radius:0)
 Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use border-top-radius, border-right-radius, border-bottom-radius, or border-left-radius.
 
-####box-shadow (@top:0.1em, @left:0, @blur:0.1em, @color:#000000, @inset:false)
+####box-shadow ($top:0.1em, $left:0, $blur:0.1em, $color:#000000, $inset:false)
 Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow.
 
-####gradient(@start-color, @end-color)
+####gradient($start-color, $end-color)
 Gradient mixin that supports Webkit/Gecko browsers and IE6+.
 
-####opacity(@opacity:1.0)
+####opacity($opacity:1.0)
 Opacity mixin that supports IE6+.
 
-####box-sizing(@sizing:border-box)
+####box-sizing($sizing:border-box)
 Box sizing mixin.
 
-####transition(@properties:all,@duration:0.3s,@easing:ease-out)
+####transition($properties:all, $duration:0.3s, $easing:ease-out)
 Transition mixin. Supports a list of multiple properties by using a comma separated list in parenthesis i.e. `transition((color, background), 0.3s, ease-out);`.
 
 ## Epilogue
