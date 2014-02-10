@@ -1,6 +1,8 @@
 html5quickstart-sass 0.0.1
 ===============
-A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks) forked from [html5quickstart](https://github.com/nearengine/html5quickstart). It is intended to be used with a progressively-enhanced mobile-first methodology. `index.html` contains a fairly comprehensive set of metadata examples that can be deleted or modified as necessary.
+A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks) forked from [html5quickstart](https://github.com/nearengine/html5quickstart).
+
+`index.html` contains a fairly comprehensive set of metadata examples that can be deleted or modified as necessary.
 
 The fluid grid was tested in Chrome, Safari, Firefox, IE9+, iOS, and Android's stock browser. It is intended to be used with a progressively-enhanced mobile-first methodology.
 
