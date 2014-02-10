@@ -26,8 +26,7 @@ html {
     font-size: 100%;
 
     // Stop browser from zooming on device orientation change
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+    @include vendorize(text-size-adjust, 100%, webkit ms);
 
     // uncomment to fix webkit font rendering on dark sites
     // -webkit-font-smoothing: antialiased;
