@@ -73,37 +73,37 @@ Here is an example of implementing a responsive, fluid grid:
 Easy, right?
 
 ###SASS Mixins
-####@mixin vendorize($property, $value, $prefixes:webkit moz ms o spec);
+####vendorize($property, $value, $prefixes:webkit moz ms o spec);
 Adds vendor prefixes to a given property. Takes a list of prefixes to apply, defaults to all four prefixes plus the standard spec.
 
-####@mixin group()
+####group()
 The classic micro float clearing fix in the form of a mixin. Apply .group() to a floated element to make sure that elements below it clear the float properly.
 
-####@mixin hidden()
+####hidden()
 This mixin hides an element from screen readers and browsers while reflowing content.
 
-####@mixin invisible()
+####invisible()
 This mixin hides an element from screen readers and browsers while maintaining layout.
 
-####@mixin visuallyhidden()
+####visuallyhidden()
 This mixin hides an element from browsers, but not screen readers.
 
-####@mixin border-radius (@radius:0)
+####border-radius (@radius:0)
 Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use border-top-radius, border-right-radius, border-bottom-radius, or border-left-radius.
 
-####@mixin box-shadow (@top:0.1em, @left:0, @blur:0.1em, @color:#000000, @inset:false)
+####box-shadow (@top:0.1em, @left:0, @blur:0.1em, @color:#000000, @inset:false)
 Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow.
 
-####@mixin gradient(@start-color, @end-color)
+####gradient(@start-color, @end-color)
 Gradient mixin that supports Webkit/Gecko browsers and IE6+.
 
-####@mixin opacity(@opacity:1.0)
+####opacity(@opacity:1.0)
 Opacity mixin that supports IE6+.
 
-####@mixin box-sizing(@sizing:border-box)
+####box-sizing(@sizing:border-box)
 Box sizing mixin.
 
-####@mixin transition(@properties:all,@duration:0.3s,@easing:ease-out)
+####transition(@properties:all,@duration:0.3s,@easing:ease-out)
 Transition mixin. Supports a list of multiple properties by using a comma separated list in parenthesis i.e. `transition((color, background), 0.3s, ease-out);`.
 
 ## Epilogue
