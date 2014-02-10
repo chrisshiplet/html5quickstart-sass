@@ -1,12 +1,14 @@
-@charset "UTF-8";
-
-//
 // html5quickstart-sass
 // by @nearengine
 //
 // web:    http://www.nearengine.com
 // github: https://github.com/nearengine/html5quickstart-sass
 //
+// style.scss: Root stylesheet, this gets compiled to style.css
+// last edited 20140209
+
+
+@charset "UTF-8";
 
 @import "utility"; // Mixins
 @import "grid"; // Grid framework (optional)

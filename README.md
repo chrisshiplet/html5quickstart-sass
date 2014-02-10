@@ -1,16 +1,18 @@
-html5quickstart-sass
+html5quickstart-sass 0.0.1
 ===============
-A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks) forked from [html5quickstart](https://github.com/nearengine/html5quickstart). Several optional mixins can be left out entirely. It is intended to be used with a progressively-enhanced mobile-first methodology.
+A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks) forked from [html5quickstart](https://github.com/nearengine/html5quickstart). It is intended to be used with a progressively-enhanced mobile-first methodology. `index.html` contains a fairly comprehensive set of metadata examples that can be deleted or modified as necessary.
+
+The fluid grid was tested in Chrome, Safari, Firefox, IE9+, iOS, and Android's stock browser. It is intended to be used with a progressively-enhanced mobile-first methodology.
 
 **Internet Explorer note:** Mobile-first design ensures that older versions of Internet Explorer will show the mobile styles, since they don't support media queries. If you need to style older versions of Internet Explorer more extensively, you can create selectors that start with .oldie, which targets IE8 and below.
 
 ##Overview
 Includes the following features:
 
-**CSS**
+**SCSS**
 - Master CSS Reset
 - Semantic Fluid Grid Mixin with micro clearfix
-- Utility Mixin with accessible hiding & vendor prefixes
+- Utility mixins for accessible hiding & CSS3 vendor prefixes
 - Placeholders for media queries & retina graphics
 - h5bp Print Media Overrides
 - Formats b, strong, pre, code, small, sub, sup
@@ -23,6 +25,7 @@ Includes the following features:
 - Optional CDN-loaded jQuery
 - Placeholders for popular meta tags
 - Placeholders for Windows 8 and iOS device icons
+- Placeholders for Facebook and Twitter OpenGraph
 - Optimized Google Analytics placeholder
 
 **MISC**
@@ -43,11 +46,13 @@ If you want a single row to line up with the grid columns, simply apply .single-
 Here is an example of implementing a responsive, fluid grid:
 
 ```html
-<div class="row">
-    <section>Hello, world.</section>
-    <section>This is a column.</section>
-    <section>And another one.</section>
-    <section>But wait! There's more!</section>
+<div class="wrapper">
+    <div class="row">
+        <section>Hello, world.</section>
+        <section>This is a column.</section>
+        <section>And another one.</section>
+        <section>But wait! There's more!</section>
+    </div>
 </div>
 ```
 
@@ -58,51 +63,50 @@ Here is an example of implementing a responsive, fluid grid:
 
 @media screen and (min-width: 48em) {
     .wrapper {
-        .row { .group(); }
-        .row section { .column(3); }
+        .row { @include group(); }
+        .row section { @include column(3); }
     }
 }
 ```
 Easy, right?
 
-###CSS Classes
-####.wrapper
-Apply this to your page wrapping div to set the max-width of the layout and keep it centered.
+###SASS Mixins
+####@mixin vendorize($property, $value, $prefixes:webkit moz ms o spec);
+Adds vendor prefixes to a given property. Takes a list of prefixes to apply, defaults to all four prefixes plus the standard spec.
 
-###LESS Mixins
-####.group()
+####@mixin group()
 The classic micro float clearing fix in the form of a mixin. Apply .group() to a floated element to make sure that elements below it clear the float properly.
 
-####.hidden()
+####@mixin hidden()
 This mixin hides an element from screen readers and browsers while reflowing content.
 
-####.invisible()
+####@mixin invisible()
 This mixin hides an element from screen readers and browsers while maintaining layout.
 
-####.visuallyhidden()
+####@mixin visuallyhidden()
 This mixin hides an element from browsers, but not screen readers.
 
-####.border-radius (@radius:0)
-Border radius mixin. You can also specify four radii to make each corner a different radius.
+####@mixin border-radius (@radius:0)
+Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use border-top-radius, border-right-radius, border-bottom-radius, or border-left-radius.
 
-####.box-shadow (@x:0, @y:0.1em, @feather:0.1em, @dist:0, @color:#000000)
-Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow with a distance of 0.
+####@mixin box-shadow (@top:0.1em, @left:0, @blur:0.1em, @color:#000000, @inset:false)
+Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow.
 
-####.gradient(@start-color:#ffffff, @end-color:#000000)
+####@mixin gradient(@start-color, @end-color)
 Gradient mixin that supports Webkit/Gecko browsers and IE6+.
 
-####.opacity(@opacity:100)
+####@mixin opacity(@opacity:1.0)
 Opacity mixin that supports IE6+.
 
-####.box-sizing(@sizing:border-box)
+####@mixin box-sizing(@sizing:border-box)
 Box sizing mixin.
 
-####.transition(@element:all,@time:1s,@style:ease)
-Transition mixin.
+####@mixin transition(@properties:all,@duration:0.3s,@easing:ease-out)
+Transition mixin. Supports a list of multiple properties by using a comma separated list in parenthesis i.e. `transition((color, background), 0.3s, ease-out);`.
 
 ## Epilogue
 That's all for now! Thanks to [Dan Cederholm](http://simplebits.com) and [Ethan Marcotte](http://ethanmarcotte.com/) for their pioneering responsive design advice.
 
-Parts were adapted from [Eric Meyer's CSS Reset](http://meyerweb.com/eric/tools/css/reset/), [Responsive.gs](http://responsive.gs/), and the [HTML5 Boilerplate](http://html5boilerplate.com/).
+Parts were adapted from [Eric Meyer's CSS Reset](http://meyerweb.com/eric/tools/css/reset/), [Responsive.gs](http://responsive.gs/), [Bourbon](http://bourbon.io/), and the [HTML5 Boilerplate](http://html5boilerplate.com/).
 
 Feel free to modify and use in your projects as you wish, although a link to [my site](http://nearengine.com) or the [GitHub repo](http://github.com/nearengine/html5quickstart-sass) is always appreciated.
