@@ -89,7 +89,7 @@ This mixin hides an element from screen readers and browsers while maintaining l
 This mixin hides an element from browsers, but not screen readers.
 
 ####border-radius ($radius:0)
-Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use border-top-radius, border-right-radius, border-bottom-radius, or border-left-radius.
+Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use **border-top-radius**, **border-right-radius**, **border-bottom-radius**, or **border-left-radius**.
 
 ####box-shadow ($top:0.1em, $left:0, $blur:0.1em, $color:#000000, $inset:false)
 Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow.
