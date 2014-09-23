@@ -1,0 +1,21 @@
+{
+  "name": "html5quickstart-sass",
+  "version": "0.1.0",
+  "description": "A minimal SCSS template to start an HTML5 project",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nearengine/html5quickstart-sass.git"
+  },
+  "author": "Chris Shiplet",
+  "bugs": {
+    "url": "https://github.com/nearengine/html5quickstart-sass/issues"
+  },
+  "homepage": "https://github.com/nearengine/html5quickstart-sass",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0"
+  }
+}
