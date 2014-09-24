@@ -2,36 +2,53 @@ html5quickstart-sass 0.1.0
 ===============
 A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks).
 
-`index.html` contains a fairly comprehensive set of metadata examples that can be deleted or modified as necessary.
+`index.html` contains a fairly comprehensive set of html5 examples that can be deleted or modified as necessary.
 
 The fluid grid was tested in Chrome, Safari, Firefox, IE9+, iOS, and Android's stock browser. It is intended to be used with a progressively-enhanced mobile-first methodology.
 
-**Internet Explorer note:** Mobile-first design ensures that older versions of Internet Explorer will show the mobile styles, since they don't support media queries. If you need to style older versions of Internet Explorer more extensively, you can create selectors that start with .oldie, which targets IE8 and below.
-
-##Overview
+## Overview
 Includes the following features:
+
+**Workflow**
+- Gruntfile to build scss, jshint and uglify js, and start browsersync
+- Gemfile for quick Jekyll install with `bundle install`
 
 **SCSS**
 - Master CSS Reset
 - Semantic Fluid Grid Mixin with micro clearfix
 - Utility mixins for accessible hiding & CSS3 vendor prefixes
-- Placeholders for media queries & retina graphics
 - h5bp Print Media Overrides
-- Formats b, strong, pre, code, small, sub, sup
-- Various browser specific fixes
+- Formats `b`, `strong`, `pre`, `code`, `small`, `sub`, `sup`, `ins`, `mark`, `hr`, `selection`, and `a`
+- Various browser specific fixes (see `_base.scss`)
 
 **HTML**
 - HTML5 doctype
 - Paul Irish oldie detection
 - CDN-loaded IE shivs for HTML5
 - Optional CDN-loaded jQuery
-- Placeholders for popular meta tags
-- Placeholders for Windows 8 and iOS device icons
+- Placeholders for popular `meta` and `link` tags
 - Placeholders for Facebook and Twitter OpenGraph
 - Optimized Google Analytics placeholder
 
 **MISC**
 - robots.txt placeholder
+- Source map support for both JS and SCSS
+- Suppress `console` errors in browsers which don't support it
+- Placeholders for Windows and iOS device icons
+
+## Usage
+
+**Dependencies**
+- `node`
+- `grunt-cli`
+
+**Getting Started**
+- `npm install`
+- `grunt`
+
+This should install the remaining dependencies, compile the necessary source files, and open a browser window pointing to BrowserSync (usually `http://localhost:3000`). When changes are made to the source files Grunt will recompile and inject updates as necessary.
+
+**Internet Explorer note:** Mobile-first design ensures that older versions of Internet Explorer will show the mobile styles, since they don't support media queries. If you need to style older versions of Internet Explorer more extensively, you can create selectors that start with .oldie, which targets IE8 and below.
 
 ## Structure
 
@@ -64,10 +81,10 @@ Includes the following features:
         └── vendor
 ```
 
-##Documentation
+## Modules
 Here's how to use the fluid grid and the various utility classes:
 
-###Fluid Grid
+### Fluid Grid
 The fluid grid is based on a 12 column system with 2% gutters, these values can be modified in grid.less. It also defaults to applying border-box sizing on the columns, this can be changed as well.
 
 To use the fluid grid to create columns, first add the .group() mixin to the containing element to clearfix it. Next simply add .column(widthInColumns) to your column elements, e.g. .column(6) to create a column that spans half the page.
@@ -103,38 +120,38 @@ Here is an example of implementing a responsive, fluid grid:
 ```
 Easy, right?
 
-###SASS Mixins
-####vendorize($property, $value, $prefixes:webkit moz ms o spec);
+### SASS Mixins
+#### vendorize($property, $value, $prefixes:webkit moz ms o spec);
 Adds vendor prefixes to a given property. Takes a list of prefixes to apply, defaults to all four prefixes plus the standard spec.
 
-####group()
+#### group()
 The classic micro float clearing fix in the form of a mixin. Apply .group() to a floated element to make sure that elements below it clear the float properly.
 
-####hidden()
+#### hidden()
 This mixin hides an element from screen readers and browsers while reflowing content.
 
-####invisible()
+#### invisible()
 This mixin hides an element from screen readers and browsers while maintaining layout.
 
-####visuallyhidden()
+#### visuallyhidden()
 This mixin hides an element from browsers, but not screen readers.
 
-####border-radius ($radius:0)
+#### border-radius ($radius:0)
 Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use **border-top-radius**, **border-right-radius**, **border-bottom-radius**, or **border-left-radius**.
 
-####box-shadow ($top:0.1em, $left:0, $blur:0.1em, $color:#000000, $inset:false)
+#### box-shadow ($top:0.1em, $left:0, $blur:0.1em, $color:#000000, $inset:false)
 Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow.
 
-####gradient($start-color, $end-color)
+#### gradient($start-color, $end-color)
 Gradient mixin that supports Webkit/Gecko browsers and IE6+.
 
-####opacity($opacity:1.0)
+#### opacity($opacity:1.0)
 Opacity mixin that supports IE6+.
 
-####box-sizing($sizing:border-box)
+#### box-sizing($sizing:border-box)
 Box sizing mixin.
 
-####transition($properties:all, $duration:0.3s, $easing:ease-out)
+#### transition($properties:all, $duration:0.3s, $easing:ease-out)
 Transition mixin. Supports a list of multiple properties by using a comma separated list in parenthesis i.e. `transition((color, background), 0.3s, ease-out);`.
 
 ## Epilogue

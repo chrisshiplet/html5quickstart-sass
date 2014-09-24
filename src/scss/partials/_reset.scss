@@ -5,56 +5,106 @@
 // web: http://www.nearengine.com
 // github: https://github.com/nearengine/html5quickstart-sass
 //
-// _reset.scss: Eric Meyer's Reset CSS v2.0.20110126
-// last edited 20140209
+// _reset.scss (based on html5doctor.com reset)
+// last edited 20140923
 
-
-html, body, div, span, applet, object, iframe,
+html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
+    outline: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
+    background: transparent;
 }
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+
 body {
     line-height: 1;
 }
-ol, ul {
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display: block;
+}
+
+ul,
+ol {
+    list-style-position: inside;
+}
+
+nav ul {
     list-style: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
 }
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
+audio,
+canvas,
+img,
+svg,
+video,
+input,
+select {
+    vertical-align: middle;
+}
 
-// Responsive Resets
+textarea {
+    // Stops users from breaking layout by horizontally expanding textareas
+    resize: vertical;
+}
 
-@-ms-viewport { width: device-width; } // IE10 on Win8 tablet media query support
-@-o-viewport { width: device-width; } // Opera and Opera Mobile
-@viewport { width: device-width; } // Standard
+@-ms-viewport {
+    // IE10 on Win8 tablet media query support
+    width: device-width;
+}
+
+@-o-viewport {
+    // Opera and Opera Mobile
+    width: device-width;
+}
+
+@viewport {
+    // Standard
+    width: device-width;
+}
