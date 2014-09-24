@@ -4,19 +4,19 @@
 // web: http://www.nearengine.com
 // github: https://github.com/nearengine/html5quickstart-sass
 //
-// style.scss: Root stylesheet, this gets compiled to style.css
-// last edited 20140209
+// style.scss: Root stylesheet, this gets compiled to /public/assets/css/style.css
+// last edited 20140923
 
 
 @charset "UTF-8";
 
-@import "utility"; // Mixins
-@import "grid"; // Grid framework (optional)
+@import "modules/mixins"; // Mixins
+@import "modules/grid";   // Grid framework (optional)
 
 
 // RESET
 
-@import "reset";
+@import "partials/reset";
 
 
 // MAIN STYLES
@@ -162,5 +162,5 @@ textarea {
 // PRINT STYLES
 
 @media print {
-    @import "print"; // Provides some overrides for a better print layout
+    @import "partials/print"; // Provides some overrides for a better print layout
 }
