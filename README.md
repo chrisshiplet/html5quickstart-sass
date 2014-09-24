@@ -1,6 +1,6 @@
-html5quickstart-sass 0.0.1
+html5quickstart-sass 0.1.0
 ===============
-A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks) forked from [html5quickstart](https://github.com/nearengine/html5quickstart).
+A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks).
 
 `index.html` contains a fairly comprehensive set of metadata examples that can be deleted or modified as necessary.
 
@@ -32,6 +32,37 @@ Includes the following features:
 
 **MISC**
 - robots.txt placeholder
+
+## Structure
+
+```
+.
+├── Gemfile
+├── Gruntfile.js
+├── package.json
+├── public
+│   ├── assets
+│   │   ├── css
+│   │   │   ├── style.css
+│   │   │   └── style.css.map
+│   │   ├── fonts
+│   │   ├── img
+│   │   └── js
+│   │       ├── scripts.js
+│   │       └── scripts.js.map
+│   └── index.html
+└── src
+    ├── js
+    └── scss
+        ├── modules
+        │   ├── _grid.scss
+        │   └── _mixins.scss
+        ├── partials
+        │   ├── _print.scss
+        │   └── _reset.scss
+        ├── style.scss
+        └── vendor
+```
 
 ##Documentation
 Here's how to use the fluid grid and the various utility classes:
