@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'public/assets/style.css' : 'src/scss/style.scss'
+                    'public/assets/css/style.css' : 'src/scss/style.scss'
                 }
             }
         },
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                     sourceMap: true
                 },
                 src : 'src/**/*.js',
-                dest : 'public/assets/scripts.js'
+                dest : 'public/assets/js/scripts.js'
             }
         },
         browserSync: {
@@ -61,5 +61,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ["sass", "browserSync", "watch"]);
+    grunt.registerTask('default', ["sass", "uglify", "browserSync", "watch"]);
 };

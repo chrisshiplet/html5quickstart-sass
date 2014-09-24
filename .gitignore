@@ -29,3 +29,9 @@ node_modules
 
 # Sass
 .sass-cache
+
+# html5quickstart
+public/assets/css/style.css
+public/assets/css/style.css.map
+public/assets/js/scripts.js
+public/assets/js/scripts.js.map
