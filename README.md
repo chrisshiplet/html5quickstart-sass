@@ -14,7 +14,7 @@ Includes the following features:
 
 **SCSS**
 - Master CSS Reset
-- Semantic Fluid Grid Mixin with micro clearfix
+- Bourbon and Neat frameworks for CSS3 mixins and a lightweight grid
 - Utility mixins for accessible hiding & CSS3 vendor prefixes
 - h5bp Print Media Overrides
 - Formats `b`, `strong`, `pre`, `code`, `small`, `sub`, `sup`, `mark`, `hr`, `selection`, and `a`
@@ -81,58 +81,19 @@ This should install the remaining dependencies, compile the necessary source fil
 ```
 
 ## Modules
-Here's how to use the fluid grid and the various utility classes:
-
-### Fluid Grid
-The fluid grid is based on a 12 column system with 2% gutters, these values can be modified in grid.less. It also defaults to applying border-box sizing on the columns, this can be changed as well.
-
-To use the fluid grid to create columns, first add the .group() mixin to the containing element to clearfix it. Next simply add .column(widthInColumns) to your column elements, e.g. .column(6) to create a column that spans half the page.
-
-You can also use the .push(widthInColumns) mixin to push a column to the right without creating empty padding columns.
-
-If you want a single row to line up with the grid columns, simply apply .single-row() to it.
-
-Here is an example of implementing a responsive, fluid grid:
-
-```html
-<div class="wrapper">
-    <div class="row">
-        <section>Hello, world.</section>
-        <section>This is a column.</section>
-        <section>And another one.</section>
-        <section>But wait! There's more!</section>
-    </div>
-</div>
-```
-
-```SCSS
-.wrapper {
-    section { padding: 1em; }
-}
-
-@media screen and (min-width: 48em) {
-    .wrapper {
-        .row { @include group(); }
-        .row section { @include column(3); }
-    }
-}
-```
-Easy, right?
-
-### SASS Mixins
 
 Bourbon and Neat are included by default. The following additional mixins are provided:
 
-#### vendorize($property, $value, $prefixes:webkit moz ms o spec);
+### vendorize($property, $value, $prefixes:webkit moz ms o spec);
 Adds vendor prefixes to a given property. Takes a list of prefixes to apply, defaults to all four prefixes plus the standard spec.
 
-#### hidden()
+### hidden()
 This mixin hides an element from screen readers and browsers while reflowing content.
 
-#### invisible()
+### invisible()
 This mixin hides an element from screen readers and browsers while maintaining layout.
 
-#### visuallyhidden()
+### visuallyhidden()
 This mixin hides an element from browsers, but not screen readers.
 
 ## Epilogue
