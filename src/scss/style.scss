@@ -9,9 +9,12 @@
 
 @charset "UTF-8";
 
+// Dependencies
+@import "bourbon";
+@import "neat";
+
 // Modules
 @import "modules/mixins"; // Mixins
-@import "modules/grid";   // Grid framework (optional)
 
 // Reset
 @import "partials/reset";

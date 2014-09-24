@@ -1,8 +1,6 @@
 html5quickstart-sass 0.1.0
 ===============
-A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks).
-
-`index.html` contains a fairly comprehensive set of html5 examples that can be deleted or modified as necessary.
+A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks). `index.html` contains a fairly comprehensive set of html5 examples that can be deleted or modified as necessary.
 
 The fluid grid was tested in Chrome, Safari, Firefox, IE9+, iOS, and Android's stock browser. It is intended to be used with a progressively-enhanced mobile-first methodology.
 
@@ -10,15 +8,16 @@ The fluid grid was tested in Chrome, Safari, Firefox, IE9+, iOS, and Android's s
 Includes the following features:
 
 **Workflow**
-- Gruntfile to build scss, jshint and uglify js, and start browsersync
-- Gemfile for quick Jekyll install with `bundle install`
+- `Gruntfile.js` to build scss, jshint and uglify js, and start browsersync
+- `package.json` for dependencies
+- `Gemfile` for quick Jekyll install with `bundle install`
 
 **SCSS**
 - Master CSS Reset
 - Semantic Fluid Grid Mixin with micro clearfix
 - Utility mixins for accessible hiding & CSS3 vendor prefixes
 - h5bp Print Media Overrides
-- Formats `b`, `strong`, `pre`, `code`, `small`, `sub`, `sup`, `ins`, `mark`, `hr`, `selection`, and `a`
+- Formats `b`, `strong`, `pre`, `code`, `small`, `sub`, `sup`, `mark`, `hr`, `selection`, and `a`
 - Various browser specific fixes (see `_base.scss`)
 
 **HTML**

@@ -4,22 +4,29 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: 'src/**/*.scss',
-                tasks: ['sass']
+                tasks: ['sass'],
+                options: {
+                    spawn: false,
+                },
             },
             scripts : {
                 files: 'src/**/*.js',
-                tasks: ['jshint', 'uglify']
-            }
+                tasks: ['jshint', 'uglify'],
+                options: {
+                    spawn: false,
+                },
+            },
         },
         sass: {
             dist: {
                 options: {
-                    style: 'compressed'
+                    style: 'compressed',
+                    loadPath: require('node-neat').includePaths,
                 },
                 files: {
-                    'public/assets/css/style.css' : 'src/scss/style.scss'
-                }
-            }
+                    'public/assets/css/style.css' : 'src/scss/style.scss',
+                },
+            },
         },
         jshint: {
             files: ['Gruntfile.js', 'src/**/*.js'],
@@ -28,30 +35,30 @@ module.exports = function(grunt) {
                     jQuery: true,
                     console: true,
                     module: true,
-                    document: true
-                }
-            }
+                    document: true,
+                },
+            },
         },
         uglify: {
             dist: {
                 options: {
-                    sourceMap: true
+                    sourceMap: true,
                 },
                 src : 'src/**/*.js',
-                dest : 'public/assets/js/scripts.js'
-            }
+                dest : 'public/assets/js/scripts.js',
+            },
         },
         browserSync: {
             bsFiles: {
-                src : ['public/**/*.css', 'public/**/*.js', 'public/**/*.html']
+                src : ['public/**/*.css', 'public/**/*.js', 'public/**/*.html'],
             },
             options: {
                 server: {
-                    baseDir: "./public"
+                    baseDir: "./public",
                 },
                 // use proxy instead of server for apps
                 // proxy: "local.dev",
-                watchTask: true
+                watchTask: true,
             }
         }
     });
