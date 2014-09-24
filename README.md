@@ -2,8 +2,6 @@ html5quickstart-sass 0.1.0
 ===============
 A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks). `index.html` contains a fairly comprehensive set of html5 examples that can be deleted or modified as necessary.
 
-The fluid grid was tested in Chrome, Safari, Firefox, IE9+, iOS, and Android's stock browser. It is intended to be used with a progressively-enhanced mobile-first methodology.
-
 ## Overview
 Includes the following features:
 
@@ -19,29 +17,35 @@ Includes the following features:
 - h5bp Print Media Overrides
 - Formats `b`, `strong`, `pre`, `code`, `small`, `sub`, `sup`, `mark`, `hr`, `selection`, and `a`
 - Various browser specific fixes (see `_base.scss`)
+- Source map support
+
+**JS**
+- Hints, concatenates and minifies JavaScript
+- Suppress `console` errors in browsers which don't support it
+- Source map support
 
 **HTML**
-- HTML5 doctype
+- HTML5 doctype and examples
 - Paul Irish oldie detection
 - CDN-loaded IE shivs for HTML5
-- Optional CDN-loaded jQuery
 - Placeholders for popular `meta` and `link` tags
 - Placeholders for Facebook and Twitter OpenGraph
 - Optimized Google Analytics placeholder
 
 **MISC**
 - robots.txt placeholder
-- Source map support for both JS and SCSS
-- Suppress `console` errors in browsers which don't support it
 - Placeholders for Windows and iOS device icons
 
 ## Usage
 
 **Dependencies**
+- `sass`
 - `node`
 - `grunt-cli`
 
 **Getting Started**
+Run the following commands at the terminal:
+
 - `npm install`
 - `grunt`
 
@@ -97,8 +101,8 @@ This mixin hides an element from screen readers and browsers while maintaining l
 This mixin hides an element from browsers, but not screen readers.
 
 ## Epilogue
-That's all for now! Thanks to [Dan Cederholm](http://simplebits.com) and [Ethan Marcotte](http://ethanmarcotte.com/) for their pioneering responsive design advice.
+That's all for now! Thanks to [Dan Cederholm](http://simplebits.com), [Jonathan Snook](http://snook.ca/) and [Ethan Marcotte](http://ethanmarcotte.com/) for their pioneering responsive design advice.
 
-Parts were adapted from [Eric Meyer's CSS Reset](http://meyerweb.com/eric/tools/css/reset/), [Responsive.gs](http://responsive.gs/), [Bourbon](http://bourbon.io/), and the [HTML5 Boilerplate](http://html5boilerplate.com/).
+Parts were adapted from [HTML5 Doctor Reset](http://html5doctor.com/html-5-reset-stylesheet/) and the [HTML5 Boilerplate](http://html5boilerplate.com/).
 
 Feel free to modify and use in your projects as you wish, although a link to [my site](http://nearengine.com) or the [GitHub repo](http://github.com/nearengine/html5quickstart-sass) is always appreciated.
