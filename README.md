@@ -120,11 +120,11 @@ Here is an example of implementing a responsive, fluid grid:
 Easy, right?
 
 ### SASS Mixins
+
+Bourbon and Neat are included by default. The following additional mixins are provided:
+
 #### vendorize($property, $value, $prefixes:webkit moz ms o spec);
 Adds vendor prefixes to a given property. Takes a list of prefixes to apply, defaults to all four prefixes plus the standard spec.
-
-#### group()
-The classic micro float clearing fix in the form of a mixin. Apply .group() to a floated element to make sure that elements below it clear the float properly.
 
 #### hidden()
 This mixin hides an element from screen readers and browsers while reflowing content.
@@ -134,24 +134,6 @@ This mixin hides an element from screen readers and browsers while maintaining l
 
 #### visuallyhidden()
 This mixin hides an element from browsers, but not screen readers.
-
-#### border-radius ($radius:0)
-Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use **border-top-radius**, **border-right-radius**, **border-bottom-radius**, or **border-left-radius**.
-
-#### box-shadow ($top:0.1em, $left:0, $blur:0.1em, $color:#000000, $inset:false)
-Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow.
-
-#### gradient($start-color, $end-color)
-Gradient mixin that supports Webkit/Gecko browsers and IE6+.
-
-#### opacity($opacity:1.0)
-Opacity mixin that supports IE6+.
-
-#### box-sizing($sizing:border-box)
-Box sizing mixin.
-
-#### transition($properties:all, $duration:0.3s, $easing:ease-out)
-Transition mixin. Supports a list of multiple properties by using a comma separated list in parenthesis i.e. `transition((color, background), 0.3s, ease-out);`.
 
 ## Epilogue
 That's all for now! Thanks to [Dan Cederholm](http://simplebits.com) and [Ethan Marcotte](http://ethanmarcotte.com/) for their pioneering responsive design advice.
