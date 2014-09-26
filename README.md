@@ -49,6 +49,7 @@ If you are using Jekyll, set it up to watch `public` as the input folder.
 - `grunt-cli`
 
 **Getting Started**
+
 Run `npm install` and then `grunt`.
 
 This should install the remaining dependencies, compile the necessary source files, and open a browser window pointing to BrowserSync (usually `http://localhost:3000`). When changes are made to the source files Grunt will recompile and inject updates as necessary.
