@@ -6,6 +6,7 @@ This is the changelog for html5quickstart-sass. See the README for more details.
 
 ###0.1.0 (2014-09-26)
 * Replaces the grid and utility mixins with Bourbon and Neat
+* Replaces Eric Meyer Reset with HTML5Doctor
 * Restructure the SCSS to be more SMACSS-y
 * Update device icon examples
 * Add local jQuery fallback and bump jQuery version to 2.1.1
