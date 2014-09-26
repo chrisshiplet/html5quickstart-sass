@@ -33,5 +33,6 @@ node_modules
 # html5quickstart
 public/assets/css/style.css
 public/assets/css/style.css.map
-public/assets/js/scripts.js
-public/assets/js/scripts.js.map
+public/assets/js
+bower_components
+build

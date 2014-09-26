@@ -2,19 +2,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
-            css: {
-                files: 'src/**/*.scss',
-                tasks: ['sass'],
-                options: {
-                    spawn: false,
-                },
+            build: {
+                files: 'src/**/*',
+                tasks: ['sass', 'uglify'],
             },
-            scripts : {
-                files: 'src/**/*.js',
-                tasks: ['jshint', 'uglify'],
-                options: {
-                    spawn: false,
-                },
+            jekyll: {
+                files: ['public/**/*'],
+                tasks: ['exec:jekyll'],
             },
         },
         sass: {
@@ -28,45 +22,68 @@ module.exports = function(grunt) {
                 },
             },
         },
-        jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js'],
-            options: {
-                globals: {
-                    jQuery: true,
-                    console: true,
-                    module: true,
-                    document: true,
-                },
-            },
-        },
         uglify: {
             dist: {
                 options: {
                     sourceMap: true,
                 },
-                src : 'src/**/*.js',
-                dest : 'public/assets/js/scripts.js',
+                files: [{
+                    expand: true,
+                    cwd: 'src/js',
+                    src: '**/*.js',
+                    dest: 'public/assets/js'
+                }]
             },
         },
+        exec: {
+            jekyll: 'jekyll build --source public --destination build',
+        },
         browserSync: {
-            bsFiles: {
-                src : ['public/**/*.css', 'public/**/*.js', 'public/**/*.html'],
-            },
-            options: {
-                server: {
-                    baseDir: "./public",
+            build: {
+                bsFiles: {
+                    src: ['public/**/*.css', 'public/**/*.js', 'public/**/*.html'],
                 },
-                // use proxy instead of server for apps
-                // proxy: "local.dev",
-                watchTask: true,
-            }
-        }
+                options: {
+                    server: {
+                        baseDir: "public",
+                    },
+                    // use proxy instead of server for apps
+                    // proxy: "local.dev",
+                    watchTask: true,
+                    ghostMode: {
+                        clicks: true,
+                        scroll: true,
+                        links: true,
+                        forms: true,
+                    },
+                },
+            },
+            jekyll: {
+                bsFiles: {
+                    src: ['build/**/*.css', 'build/**/*.js', 'build/**/*.html'],
+                },
+                options: {
+                    server: {
+                        baseDir: "build",
+                    },
+                    watchTask: true,
+                    ghostMode: {
+                        clicks: true,
+                        scroll: true,
+                        links: true,
+                        forms: true,
+                    },
+                },
+            },
+        },
     });
-    // grunt.loadNpmTasks('grunt-jekyll');
+
+    grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ["sass", "uglify", "browserSync", "watch"]);
+
+    grunt.registerTask('default', ["sass", "uglify", "browserSync:build", "watch:build"]);
+    grunt.registerTask('jekyll', ["sass", "uglify", "exec:jekyll", "browserSync:jekyll", "watch"]);
 };
