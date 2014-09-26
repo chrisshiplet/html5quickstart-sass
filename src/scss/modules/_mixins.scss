@@ -1,0 +1,58 @@
+//
+// html5quickstart-sass
+//
+// by @nearengine
+// web: http://www.nearengine.com
+// github: https://github.com/nearengine/html5quickstart-sass
+//
+// _utility.scss: Contains accessible hiding, clearfix, and vendor prefix mixins
+//                Vendorize mixin adapted from Bourbon
+// last edited 20140923
+
+
+// Hide from screenreaders and browsers
+@mixin hidden() {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide from screenreaders and browsers and maintain layout
+@mixin invisible() {
+    visibility: hidden;
+}
+
+// Hide from browsers but NOT screenreaders
+@mixin visuallyhidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+// Vendor prefix helper
+@mixin vendorize($property, $value, $prefixes:(webkit, moz, ms, o, spec)) {
+    @each $prefix in $prefixes {
+        @if $prefix == webkit {
+            -webkit-#{$property}: $value;
+        }
+        @else if $prefix == moz {
+            -moz-#{$property}: $value;
+        }
+        @else if $prefix == ms {
+            -ms-#{$property}: $value;
+        }
+        @else if $prefix == o {
+            -o-#{$property}: $value;
+        }
+        @else if $prefix == spec {
+            #{$property}: $value;
+        }
+        @else  {
+          @warn "Unrecognized prefix: #{$prefix}";
+        }
+    }
+}

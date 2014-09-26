@@ -1,0 +1,26 @@
+// html5quickstart-sass
+//
+// by @nearengine
+// web: http://www.nearengine.com
+// github: https://github.com/nearengine/html5quickstart-sass
+//
+// style.scss: Root stylesheet
+// last edited 20140923
+
+@charset "UTF-8";
+
+// Dependencies
+@import "bourbon";
+@import "neat";
+
+// Modules
+@import "modules/mixins"; // Mixins
+
+// Reset
+@import "partials/reset";
+
+// Main Styles
+@import "partials/base";
+
+// Print Overrides
+@import "partials/print";

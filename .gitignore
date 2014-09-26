@@ -1,2 +1,38 @@
+# OS junk
 .DS_Store
-css/*
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Node stuff
+node_modules/
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+npm-debug.log
+node_modules
+
+# Sass
+.sass-cache
+
+# html5quickstart
+public/assets/css/style.css
+public/assets/css/style.css.map
+public/assets/js
+bower_components
+build

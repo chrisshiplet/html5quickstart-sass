@@ -1,114 +1,118 @@
-html5quickstart-sass 0.0.1
+html5quickstart-sass 0.1.0
 ===============
-A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks) forked from [html5quickstart](https://github.com/nearengine/html5quickstart).
+A minimal SCSS template to start an HTML5 project without the overhead of Bootstrap (and similar frameworks). `index.html` contains a fairly comprehensive set of html5 examples that can be deleted or modified as necessary.
 
-`index.html` contains a fairly comprehensive set of metadata examples that can be deleted or modified as necessary.
+It also contains a Gruntfile for automating your frontend workflow. If you would like to use Jekyll to generate your site, place your Jekyll config in the root folder of this project and see **Getting Started** for more details.
 
-The fluid grid was tested in Chrome, Safari, Firefox, IE9+, iOS, and Android's stock browser. It is intended to be used with a progressively-enhanced mobile-first methodology.
-
-**Internet Explorer note:** Mobile-first design ensures that older versions of Internet Explorer will show the mobile styles, since they don't support media queries. If you need to style older versions of Internet Explorer more extensively, you can create selectors that start with .oldie, which targets IE8 and below.
-
-##Overview
+## Overview
 Includes the following features:
+
+**Workflow**
+- `Gruntfile.js` to build scss, minify js, and start browsersync
+- `package.json` for dependencies
+
+*If you would like to avoid using Grunt*, simply set up your local Sass to compile `src/scss/style.scss` to `public/assets/style.css` and minify the `src/js` directory to `public/assets/js`. You may need to specify exact paths for bourbon and neat in `style.scss`.
+
+If you are using Jekyll, set it up to watch `public` as the input folder.
 
 **SCSS**
 - Master CSS Reset
-- Semantic Fluid Grid Mixin with micro clearfix
-- Utility mixins for accessible hiding & CSS3 vendor prefixes
-- Placeholders for media queries & retina graphics
+- Bourbon and Neat frameworks for CSS3 mixins and a lightweight grid
+- Utility mixins for accessible hiding and CSS3 vendor prefixes
 - h5bp Print Media Overrides
-- Formats b, strong, pre, code, small, sub, sup
-- Various browser specific fixes
+- Provides base styles for `b`, `strong`, `pre`, `code`, `small`, `sub`, `sup`, `mark`, `hr`, `selection`, and `a`
+- As well as various browser specific fixes (see `_base.scss`)
+- Source map support
+
+**JS**
+- Minifies JavaScript
+- Optional CDN-loaded jQuery with local fallback
+- Source map support
 
 **HTML**
-- HTML5 doctype
+- HTML5 doctype and examples
 - Paul Irish oldie detection
 - CDN-loaded IE shivs for HTML5
-- Optional CDN-loaded jQuery
-- Placeholders for popular meta tags
-- Placeholders for Windows 8 and iOS device icons
+- Placeholders for popular `meta` and `link` tags
 - Placeholders for Facebook and Twitter OpenGraph
 - Optimized Google Analytics placeholder
 
 **MISC**
 - robots.txt placeholder
+- Placeholders for Windows and iOS device icons
 
-##Documentation
-Here's how to use the fluid grid and the various utility classes:
+## Usage
 
-###Fluid Grid
-The fluid grid is based on a 12 column system with 2% gutters, these values can be modified in grid.less. It also defaults to applying border-box sizing on the columns, this can be changed as well.
+**Dependencies**
+- `sass`
+- `node` and `npm`
+- `grunt-cli`
 
-To use the fluid grid to create columns, first add the .group() mixin to the containing element to clearfix it. Next simply add .column(widthInColumns) to your column elements, e.g. .column(6) to create a column that spans half the page.
+**Getting Started**
 
-You can also use the .push(widthInColumns) mixin to push a column to the right without creating empty padding columns.
+Run `npm install` and then `grunt`.
 
-If you want a single row to line up with the grid columns, simply apply .single-row() to it.
+This should install the remaining dependencies, compile the necessary source files, and open a browser window pointing to BrowserSync (usually `http://localhost:3000`). When changes are made to the source files Grunt will recompile and inject updates as necessary.
 
-Here is an example of implementing a responsive, fluid grid:
+If you want to add Jekyll support, additionally run `gem install jekyll`, and then run `grunt jekyll` in place of `grunt`. This adds an additional build step to run `jekyll build` and output the site to the `/build/` directory.
 
-```html
-<div class="wrapper">
-    <div class="row">
-        <section>Hello, world.</section>
-        <section>This is a column.</section>
-        <section>And another one.</section>
-        <section>But wait! There's more!</section>
-    </div>
-</div>
+**Internet Explorer note:** Mobile-first design ensures that older versions of Internet Explorer will show the mobile styles, since they don't support media queries. If you need to style older versions of Internet Explorer more extensively, you can create selectors that start with .oldie, which targets IE8 and below.
+
+## Structure
+
+```
+.
+├── public
+│   ├── assets
+│   │   ├── css
+│   │   │   ├── style.css
+│   │   │   └── style.css.map
+│   │   ├── fonts
+│   │   ├── img
+│   │   └── js
+│   │       └── vendor
+│   │           ├── jquery-2.1.1.js
+│   │           └── jquery-2.1.1.js.map
+│   └── index.html
+└── src
+    ├── js
+    │   └── vendor
+    │       └── jquery-2.1.1.js
+    └── scss
+        ├── modules
+        │   └── _mixins.scss
+        ├── partials
+        │   ├── _base.scss
+        │   ├── _print.scss
+        │   └── _reset.scss
+        └── style.scss
 ```
 
-```SCSS
-.wrapper {
-    section { padding: 1em; }
-}
+All files that are preprocessed live in `/src/`: files in the `/src/js/` directory will be minified and output to `/public/assets/js/`, and the `/scss/style.scss` will be compiled by Sass and output to `/public/assets/css/style.css` along with their respective sourcemaps. jQuery is provided as a fallback to the optional CDN-loaded example in `index.html`.
 
-@media screen and (min-width: 48em) {
-    .wrapper {
-        .row { @include group(); }
-        .row section { @include column(3); }
-    }
-}
-```
-Easy, right?
+All files that will be accessible from the web live in `/public/`. There are examples of device icons, a `robots.txt`, and an HTML5 starter template in here.
 
-###SASS Mixins
-####vendorize($property, $value, $prefixes:webkit moz ms o spec);
+If you are using Jekyll with Grunt, the final site will be output to `/build/`, which is what should be deployed to the public server.
+
+## Modules
+
+Bourbon and Neat are included by default. The following additional mixins are provided:
+
+### vendorize($property, $value, $prefixes:webkit moz ms o spec);
 Adds vendor prefixes to a given property. Takes a list of prefixes to apply, defaults to all four prefixes plus the standard spec.
 
-####group()
-The classic micro float clearing fix in the form of a mixin. Apply .group() to a floated element to make sure that elements below it clear the float properly.
-
-####hidden()
+### hidden()
 This mixin hides an element from screen readers and browsers while reflowing content.
 
-####invisible()
+### invisible()
 This mixin hides an element from screen readers and browsers while maintaining layout.
 
-####visuallyhidden()
+### visuallyhidden()
 This mixin hides an element from browsers, but not screen readers.
 
-####border-radius ($radius:0)
-Border radius mixin. You can also specify four radii to make each corner a different radius. You can also use **border-top-radius**, **border-right-radius**, **border-bottom-radius**, or **border-left-radius**.
-
-####box-shadow ($top:0.1em, $left:0, $blur:0.1em, $color:#000000, $inset:false)
-Box shadow mixin that defaults to a 0.1em 90 degree black drop shadow.
-
-####gradient($start-color, $end-color)
-Gradient mixin that supports Webkit/Gecko browsers and IE6+.
-
-####opacity($opacity:1.0)
-Opacity mixin that supports IE6+.
-
-####box-sizing($sizing:border-box)
-Box sizing mixin.
-
-####transition($properties:all, $duration:0.3s, $easing:ease-out)
-Transition mixin. Supports a list of multiple properties by using a comma separated list in parenthesis i.e. `transition((color, background), 0.3s, ease-out);`.
-
 ## Epilogue
-That's all for now! Thanks to [Dan Cederholm](http://simplebits.com) and [Ethan Marcotte](http://ethanmarcotte.com/) for their pioneering responsive design advice.
+That's all for now! Thanks to [Dan Cederholm](http://simplebits.com), [Jonathan Snook](http://snook.ca/) and [Ethan Marcotte](http://ethanmarcotte.com/) for their pioneering responsive design advice.
 
-Parts were adapted from [Eric Meyer's CSS Reset](http://meyerweb.com/eric/tools/css/reset/), [Responsive.gs](http://responsive.gs/), [Bourbon](http://bourbon.io/), and the [HTML5 Boilerplate](http://html5boilerplate.com/).
+Parts were adapted from [HTML5 Doctor Reset](http://html5doctor.com/html-5-reset-stylesheet/) and the [HTML5 Boilerplate](http://html5boilerplate.com/).
 
 Feel free to modify and use in your projects as you wish, although a link to [my site](http://nearengine.com) or the [GitHub repo](http://github.com/nearengine/html5quickstart-sass) is always appreciated.
